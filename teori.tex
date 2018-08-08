@@ -1,0 +1,45 @@
+\section{signal detection}
+\subsection{Faraday induction}
+\begin{align*}
+&emf=-\TDy{t}{\Phi}\\
+&\Phi=\int_A\vec{B}\cdot dS\\
+&\vec{B}(t)=B(\sin{\theta}\hat{y}+\cos{\theta}\hat{z})\sin{\omega t}
+\end{align*}
+\subsection{Reciprocity theorem and NMR signal}
+$\Phi_M$ flux thrught coil due to magnetization:
+\begin{equation*}
+\Phi_M(t)=\int_{sample}d^3r\vec{B}^{receive}(\vec{r})\cdot\vec{M}(\vec{r},t)
+\end{equation*}
+$\vec{B}^{receive}$ magnetic field per unit corrent that would be produced by coil at $\vec{r}$
+
+\section{Effetti della risonanza sulla bobina}
+
+Densit'a d'energia magnetica $U_M=\frac{1}{2}\mu_0(\scap{H}{H}+\chi\scap{M}{H})$.
+Energia assorbita dal sistema di spin in un ciclo del campo RF
+\begin{align*}
+&\vec{H}_1=\Re{\vec{H}_1\exp{j\omega t}}\
+&\Delta E=\frac{1}{2}\mu_0\oint\vec{M}d\vec{H}=\frac{1}{2}\mu_0H_1^2V\pi\chi''
+\end{align*}
+Energia immagazzinata nella bobina
+\begin{align*}
+&E_{Bob}=\frac{1}{2}\mu_0\oint\vec{H}d\vec{H}dV\\
+&\exv{E_{Bob}}_T=\frac{V_0}{2T}\int_0^T\mu_0\Re{H_1\exp{j\omega t}}\Re{H_1\exp{j\omega t}}=\frac{\mu_0H_1^2V_0}{4}
+\end{align*}
+
+Effetti della risonanza su Q:
+\begin{align*}
+&Q=2\pi\frac{E}{\Delta E}\\
+&\frac{1}{Q}=\frac{1}{2\pi}\frac{\Delta E_0}{E}+\frac{1}{2\pi}\frac{\Delta E}{E}\\
+&=\frac{1}{Q_0}+\frac{1}{2\pi}\frac{\Delta E}{E}\\
+&\Delta Q=Q_0-Q\\
+&\Delta Q=\frac{1}{2\pi}Q_0^2\frac{\Delta E}{E}\\
+&\Delta Q=\chi''Q_0^2\eta
+\end{align*}
+
+Effetti della risonanza su L:
+\begin{align*}
+&\exv{E_{Tot}}_T=\frac{1}{2T}\int\scap{H}{B}\,dV\,dt=\frac{\mu_0H_1^2V_0}{4}+\frac{\mu_0H_1^2V\chi'}{4}\\
+&L=\frac{2\exv{E_{tot}}_T}{I^2}\\
+&\Delta L=\chi'\eta L_0\\
+&L_0=\frac{1}{2I^2}\mu_0H_1^2V_0
+\end{align*}

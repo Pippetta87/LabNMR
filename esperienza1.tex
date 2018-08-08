@@ -1,0 +1,117 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfkeys{/pgf/fpu=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Constant for pgf
+%\pgfmathparse{} %
+%\edef\Gconst{\pgfmathresult}
+
+\chapter{Esperienza 1: Circuiti risonanti e impedenze}
+
+\section{Schema dell'esperienza}
+
+\subsection{Materiali}
+
+Connettori quadripolari su cui sono saldati opportunamente elementi circuitali per ottenere i seguenti circuiti:
+
+\begin{itemize}
+\item circuito aperto e corto
+\item Elementi resistivi: \SI{30.1}{\ohm}, \SI{220}{\ohm}, \SI{1000}{\ohm}, \SI{68}{\ohm}, \SI{470}{\ohm}, \SI{4.7}{\kilo\ohm}
+\item Elementi capacitivi: condensatori ceramici  \SI{100}{\pico\farad}, \SI{22}{\pico\farad}.
+\item Elementi induttivi: silver coil \SI{144}{\nano\henry}, bronze coil \SI{427}{\nano\henry} 
+\item Circuiti risonanti: serie LC, parallelo Lc
+\end{itemize}
+
+\section{Procedimento}
+
+Abbiamo verificato le caratteristiche di alcuni circuiti tramite l'analizzatore di rete HP 8752C che fornisce parte reale e immaginaria dell'impedenza e capacit\'a/induttanza equivalente alla frequenza data. Inoltre mostra il luogo dei punti corrispondenti all'impedenza collegata nel piano di Smith nel range di frequenze selezionato.
+
+\subsection{Impedenze}
+
+\begin{itemize}
+\item circuito aperto.
+Posizione nella carta di Smith nel range $0.3-5$ Mhz punto a impedenza infinita. (Dall'analizzatore di rete:\SI{-2.3}{\kilo\ohm} \SI{-18.4}{\kilo\ohm} \SI{2.4}{\pico\farad} a $\nu=3.5Mhz$)
+\item corto-circuito: Posizione nella carta di Smith nel range $0.3-5$ Mhz punto a impedenza zero. (Dall'analizzatore di rete:\SI{10.1}{\milli\ohm} \SI{461}{\milli\ohm} \SI{20.7}{\nano\henry} a $\nu=3.5Mhz$)
+\item \SI{30}{\ohm}: posizione nella carta di Smith nel range $0.3-5$ Mhz punto sulla retta a impedenza reale a circa \pgfmathparse{30/50}\pgfmathprintnumber{\pgfmathresult}. (Dall'analizzatore di rete: \SI{30}{\ohm} \SI{1.1}{\ohm} \SI{37}{\nano\henry} a $\nu=5Mhz$))
+%Log-mag \numrange{-12.011}{-12.075} db, $\nu=3.5Mhz$,
+\item \SI{220}{\ohm}: posizione nella carta di Smith nel range $0.3-5$ Mhz punto sulla retta a impedenza reale a circa \pgfmathparse{224/50}\pgfmathprintnumber{\pgfmathresult}. (Dall'analizzatore di rete: \SI{224}{\ohm}  \SI{-6.1}{\ohm} \SI{5}{\nano\farad} a $\nu=5Mhz$))
+%log-mag(5Mhz) $-3.95db$
+\item \SI{1000}{\ohm}: posizione nella carta di Smith nel range $0.3-5$ Mhz punto sulla retta a impedenza reale a circa \pgfmathparse{974/50}\pgfmathprintnumber{\pgfmathresult}. (Dall'analizzatore di rete: \SI{974.6}{\ohm} \SI{-166.3}{\ohm}  \SI{191.4}{\pico\farad})
+%log-mag(5Mhz) $-0.867db$
+\item \SI{68}{\ohm}: posizione nella carta di Smith nel range $0.3-5$ Mhz punto sulla retta a impedenza reale a circa \pgfmathparse{69.6/50}\pgfmathprintnumber{\pgfmathresult}. (Dall'analizzatore di rete: \SI{69.6}{\ohm} \SI{0.19}{\ohm}  \SI{5.97}{\nano\farad})
+%log-mag(5Mhz) $-15.7db$
+\item \SI{470}{\ohm}: posizione nella carta di Smith nel range $0.3-5$ Mhz punto sulla retta a impedenza reale a circa \pgfmathparse{510/50}\pgfmathprintnumber{\pgfmathresult}. (Dall'analizzatore di rete: \SI{510}{\ohm} \SI{-43.2}{\ohm} \SI{737.6}{\pico\farad})
+%log-mag(5Mhz) $-1.71db$
+ \item \SI{4.7}{\kilo\ohm}: posizione nella carta di Smith nel range $0.3-5$ Mhz punto sulla retta a impedenza reale a circa \pgfmathparse{3680/50}\pgfmathprintnumber{\pgfmathresult}. (Dall'analizzatore di rete: \SI{3.68}{\kilo\ohm} \SI{-1.82}{\kilo\ohm} \SI{26.3}{\pico\farad})
+ %log-mag(5Mhz) $-0.199db$
+ 
+\item induttanza ramata I. (Dall'analizzatore di rete: \SI{0.4}{\ohm} \SI{50}{\ohm} \SI{427}{\nano\henry})
+Alla frequenza per cui la fase tra segnale in ingresso e riflesso \'e $\pi/2$ risulta $\omega L=\SI{50}{\ohm}$: poich\'e $\nu(\pi/2)=\SI{18.6}{\mega\hertz}$ si ricava L=\pgfmathparse{50/(2*pi*18.6*10^6)}\pgfmathprintnumber{\pgfmathresult}\si{\henry}.
+
+\item induttanza ramata II.  (Dall'analizzatore di rete: \SI{0.4}{\ohm} \SI{-30}{\milli\ohm} \SI{221.7}{\nano\henry})
+In questo caso $\nu(\pi/2)=\SI{23.2}{\mega\hertz}$ quindi $L=\pgfmathparse{50/(2*pi*23.2*10^6)}\pgfmathprintnumber{\pgfmathresult}\si{\henry}$.
+
+\item induttanza argentata. (Dall'analizzatore di rete: \SI{0.3}{\ohm} \SI{50}{\ohm} \SI{144.2}{\nano\henry})
+In questo caso $\nu(\pi/2=\SI{55.2}{\mega\hertz}$, quindi $L=\pgfmathparse{50/(2*pi*55.2*10^6)}\pgfmathprintnumber{\pgfmathresult}\si{\henry}$.
+
+\item condensatore \SI{22}{\pico\farad}. (Dall'analizzatore di rete: \SI{0.35}{\ohm}-\SI{-50.1}{\ohm}-\SI{22.98}{\pico\farad})
+
+Lo sfasamento di $-\pi/2$ si ha per \SI{138.3}{\mega\hertz} quindi $C=\pgfmathparse{1/(2*pi*50*138.3*10^6)}\pgfmathprintnumber{\pgfmathresult}\si{\farad}$.
+
+\item condensatore \SI{100}{\pico\farad}. Lo sfasamento di $-\pi/2$ si ha per \SI{29.3}{\mega\hertz} quindi $C=\pgfmathparse{1/(2*pi*50*29.3*10^6)}\pgfmathprintnumber{\pgfmathresult}\si{\farad}$.
+%$Z_L=Z_0=\SI{50}{\ohm}$, $\Gamma=-j=\frac{Z_L-Z_0}{Z_L+Z_0}$ cio\'e $Z_L=Z_0\frac{1+\Gamma}{1-\Gamma}$
+
+\end{itemize}
+
+\subsection{Circuiti risonanti}
+
+\begin{itemize}
+\item Circuito RLC risonante (ramato): $\nu_{ris}=\SI{23.1}{\mega\hertz}$ misurata per $\Gamma=-1$.%
+\edef\nur{23.1e6}
+%nu resonance
+\edef\omegar{2*pi*\nur} %omega resonance
+\edef\cnom{100*10^(-12)} %Condensatore serie 100PF??
+\edef\Lnom{427*10^(-9)}%
+\edef\rserie{400*e-3} %reistenza serie
+Risonanza nominale ($\nu_{ris}=\pgfmathparse{(\cnom*\Lnom)^(-0.5)/(2*pi)}\pgfmathprintnumber{\pgfmathresult}\si{\hertz}$.
+%$Q=\frac{\omega_0L}{r}=\pgfmathparse{\rserie/(\omegar*\Larg)}\pgfmathprintnumber{\pgfmathresult}$.$
+\item Circuito RLC risonante (argentato)  $\nu_{ris}=\SI{131.37}{\mega\hertz}$ misurata per $\Gamma=-1$.
+\edef\nur{131.37*10^6}%nu resonance
+\edef\omegar{2*pi*\nur}%omega resonance
+\edef\rserie{500*e-3}%reistenza serie
+\edef\Larg{144*10^(-9)}.%Valore ipotetico nominale induttanza argentata
+Capacit\'a da frequenza: C=\pgfmathparse{(\omegar^2*\Larg)^(-1)}\pgfmathprintnumber{\pgfmathresult}\si{\farad}.
+%$Q=\frac{\omega_0L}{r}=\pgfmathparse{\rserie/(\omegar*\Larg)}\pgfmathprintnumber{\pgfmathresult}$.$
+\item Circuito anti-risonante (ramato): $\nu_{anti}=\SI{22.7}{\mega\hertz}$, $\Gamma=1$.%(impedenza massima?)
+\SI{9.5}{\kilo\ohm} \SI{669}{\ohm} \SI{4.7}{\micro\henry}.
+\edef\nua{23.2e6}    %nu resonance
+\edef\omegaa{2*pi*\nua}    %omega resonance
+\edef\rpar{9.5e3}    %res parallelo
+%Frequenza di risonanza: $LC\omega_0^2=1$.
+%$Q=\frac{R}{\omega_0L}=\pgfmathparse{\rpar/(\omegaa*\Lanti)}\pgfmathprintnumber{\pgfmathresult}$.$
+\end{itemize}
+
+\pgfkeys{/pgf/fpu=false}
+
+\section{Circuiti risonanti}
+\begin{itemize}
+\item RLC serie. $Z=r+j\omega L+\frac{1}{j\omega C}$. Alla pulsazione di risonanza $Z(\omega)$ \'e minimo: $\omega_0L=\frac{1}{\omega_0C}$, $Z(\omega_0)=r=\frac{\omega_0L}{Q}$. $Q=\frac{\omega_0L}{r}=\frac{1}{\omega_0Cr}$.
+\item RLC parallelo. $Z=\frac{1}{\frac{1}{R}+j(\omega C-\frac{1}{\omega L})}$. Alla pulsazione di risonanza $Z(\omega)$ \'e massimo: $\omega_0L=\frac{1}{\omega_0C}$, $Z(\omega_0)=r=\frac{\omega_0L}{Q}$. $Q=\frac{R}{\omega_0L}=\omega_0CR$.
+\end{itemize}
+
+\section{Coefficiente di riflessione nella carta di Smith}
+La carta di Smith mostra l'impedenza normalizzata
+\begin{equation}
+z=\frac{Z}{Z_0}=r+jx
+\end{equation}
+con $Z=\frac{V}{I}$, $Z_0$ impedenza del generatore d'onde. Dall'equazione delle linee si ha
+\begin{equation}
+z=\frac{1+\Gamma}{1-\Gamma}
+\end{equation}
+dove $\Gamma=\frac{Z_L-Z_0}{Z_L+Z_0}$ \'e il coefficiente di riflessione.
+Nel piano $(\Re{\Gamma},\Im{\Gamma})$ la parte reale normalizzata dell'impedenza definisce la circonferenza di centro $(\frac{r}{r+1},0)$ e raggio $\frac{1}{1+r}$, la parte immaginaria una circonferenza di centro $(1,\frac{1}{x})$ e raggio $\frac{1}{x}$.
+
+%$\tan{\theta}=\frac{\Im{\Gamma}}{\Re{\Gamma}}$ alla risonanza si ha $\theta=90$ ($\frac{1}{\Re{\Gamma}}\to\infty$): $\omega{ph90}=\omega_{ris}$, $\omega L=Z_0$
+%$\Gamma=\frac{Z_L-Z_0}{Z_L+Z_0}$, $Z_0$ impedenza vista da $Z_L$, quindi $Z_L=Z_0\frac{1+\Gamma}{1-\Gamma}$
+
+\end{document}
