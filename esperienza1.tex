@@ -64,7 +64,8 @@ Lo sfasamento di $-\pi/2$ si ha per \SI{138.3}{\mega\hertz} quindi $C=\pgfmathpa
 \end{itemize}
 
 \subsection{Circuiti risonanti}
-
+%RLC serie: Z minimo alla risonanza, omega0L=1/(omega0C), Z(0mega0)=r=(omega0L)/Q
+%RLC parallelo: Z massima, omega0L=1/(omega0C), Z(omega0)=
 \begin{itemize}
 \item Circuito RLC risonante (ramato): $\nu_{ris}=\SI{23.1}{\mega\hertz}$ misurata per $\Gamma=-1$.%
 \edef\nur{23.1e6}
@@ -72,23 +73,31 @@ Lo sfasamento di $-\pi/2$ si ha per \SI{138.3}{\mega\hertz} quindi $C=\pgfmathpa
 \edef\omegar{2*pi*\nur} %omega resonance
 \edef\cnom{100*10^(-12)} %Condensatore serie 100PF??
 \edef\Lnom{427*10^(-9)}%
-\edef\rserie{400*e-3} %reistenza serie
+\edef\rserie{400*10^(-3)} %reistenza serie
+%\edef\Qrr{\omegar*\Lnom/\rserie} %Q risonante ramato 
 Risonanza nominale ($\nu_{ris}=\pgfmathparse{(\cnom*\Lnom)^(-0.5)/(2*pi)}\pgfmathprintnumber{\pgfmathresult}\si{\hertz}$.
-%$Q=\frac{\omega_0L}{r}=\pgfmathparse{\rserie/(\omegar*\Larg)}\pgfmathprintnumber{\pgfmathresult}$.$
+$Q=\frac{\omega_0L}{r}=\pgfmathparse{\omegar*\Lnom/\rserie}\pgfmathprintnumber{\pgfmathresult}$.
+$Q=\frac{1}{\omega_0Cr}=\pgfmathparse{1/(\omegar*\cnom*\rserie)}\pgfmathprintnumber{\pgfmathresult}$.
 \item Circuito RLC risonante (argentato)  $\nu_{ris}=\SI{131.37}{\mega\hertz}$ misurata per $\Gamma=-1$.
 \edef\nur{131.37*10^6}%nu resonance
 \edef\omegar{2*pi*\nur}%omega resonance
-\edef\rserie{500*e-3}%reistenza serie
+\edef\rserie{500*10^(-3)}%reistenza serie
 \edef\Larg{144*10^(-9)}.%Valore ipotetico nominale induttanza argentata
-Capacit\'a da frequenza: C=\pgfmathparse{(\omegar^2*\Larg)^(-1)}\pgfmathprintnumber{\pgfmathresult}\si{\farad}.
+Capacit\'a da frequenza: C=\pgfmathparse{(\omegar^2*\Larg)^(-1)}\edef\Cmis{\pgfmathresult}
+\pgfmathprintnumber{\Cmis}\si{\farad}.
+
 %$Q=\frac{\omega_0L}{r}=\pgfmathparse{\rserie/(\omegar*\Larg)}\pgfmathprintnumber{\pgfmathresult}$.$
+$Q=\frac{\omega_0L}{r}=\pgfmathparse{\omegar*\Larg/\rserie}\pgfmathprintnumber{\pgfmathresult}$.
+$Q=\frac{1}{\omega_0Cr}=\pgfmathparse{1/(\omegar*\Cmis*\rserie)}\pgfmathprintnumber{\pgfmathresult}$.
 \item Circuito anti-risonante (ramato): $\nu_{anti}=\SI{22.7}{\mega\hertz}$, $\Gamma=1$.%(impedenza massima?)
-\SI{9.5}{\kilo\ohm} \SI{669}{\ohm} \SI{4.7}{\micro\henry}.
+(\SI{9.5}{\kilo\ohm}, \SI{669}{\ohm}, \SI{4.7}{\micro\henry})
 \edef\nua{23.2e6}    %nu resonance
 \edef\omegaa{2*pi*\nua}    %omega resonance
 \edef\rpar{9.5e3}    %res parallelo
 %Frequenza di risonanza: $LC\omega_0^2=1$.
 %$Q=\frac{R}{\omega_0L}=\pgfmathparse{\rpar/(\omegaa*\Lanti)}\pgfmathprintnumber{\pgfmathresult}$.$
+$Q=\frac{\omega_0L}{r}=\pgfmathparse{\omegaa*\Larg/\rpar}\pgfmathprintnumber{\pgfmathresult}$.
+$Q=\frac{1}{\omega_0Cr}=\pgfmathparse{1/(\omegaa*\Cmis*\rpar)}\pgfmathprintnumber{\pgfmathresult}$.
 \end{itemize}
 
 \pgfkeys{/pgf/fpu=false}
